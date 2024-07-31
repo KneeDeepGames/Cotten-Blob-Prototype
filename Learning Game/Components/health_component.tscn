@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbrwjyykuev8w"]
+
+[ext_resource type="Script" path="res://Components/health_component.gd" id="1_35i7d"]
+
+[node name="Health_Component" type="Node"]
+script = ExtResource("1_35i7d")
+
+[node name="Timer_Hurt_Delay" type="Timer" parent="."]

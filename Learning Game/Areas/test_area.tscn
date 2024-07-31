@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://1p6y8wao8wob"]
+
+[ext_resource type="PackedScene" uid="uid://c1ou0mm3br1po" path="res://Enemies/enemy_1.tscn" id="1_fs3p6"]
+[ext_resource type="PackedScene" uid="uid://cc0xkmo84a45p" path="res://Player/player.tscn" id="1_wy382"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8g8e"]
+size = Vector2(1408, 64)
+
+[node name="Test_Area" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 96)
+shape = SubResource("RectangleShape2D_o8g8e")
+
+[node name="Player" parent="." instance=ExtResource("1_wy382")]
+position = Vector2(-256, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Enemy_1" parent="." instance=ExtResource("1_fs3p6")]
+position = Vector2(256, 0)
