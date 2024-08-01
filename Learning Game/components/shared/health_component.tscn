@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bbrwjyykuev8w"]
 
-[ext_resource type="Script" path="res://Components/health_component.gd" id="1_35i7d"]
+[ext_resource type="Script" path="res://scripts/component/health_component.gd" id="1_00krv"]
 
 [node name="Health_Component" type="Node"]
-script = ExtResource("1_35i7d")
+script = ExtResource("1_00krv")
 
 [node name="Timer_Hurt_Delay" type="Timer" parent="."]
+one_shot = true

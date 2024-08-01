@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Learning Game"
-run/main_scene="res://Areas/test_area.tscn"
+run/main_scene="res://scenes/level/test_area.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/filesystem_drawer/plugin.cfg")
 
 [layer_names]
 
