@@ -86,7 +86,7 @@ sky = SubResource("Sky_leb8j")
 [node name="Test_Area_3d" type="Node"]
 
 [node name="Cotten_Blob" parent="." instance=ExtResource("1_k4yx3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45949, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45949, 0, 4.41444)
 
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_mask = 0
