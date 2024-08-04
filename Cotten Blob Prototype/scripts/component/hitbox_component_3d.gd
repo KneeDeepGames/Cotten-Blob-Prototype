@@ -3,6 +3,7 @@ class_name HitboxComponent
 
 @export var health_component:HealthComponent = null
 @export var blink_component:BlinkComponent = null
+@export var collectable_component:CollectableComponent = null
 		
 func heal(heal_amount):
 	if health_component:

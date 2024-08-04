@@ -30,6 +30,10 @@ var color:Color = Color(1,1,1,1)
 
 var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
 
+# Integers
+
+var push_force:int = 4
+
 # Booleans
 var is_grounded:bool = false
 var can_double_jump:bool = false
@@ -68,6 +72,13 @@ func _physics_process(delta):
 				perform_flip_jump()
 	
 	velocity.y -= gravity * delta
+	
+	move_and_slide()
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 func perform_jump():
 	#AudioManager.jump_sfx.play()
@@ -103,8 +114,6 @@ func get_input(_delta):
 	# Move The player Towards Spring Arm/Camera Rotation
 	move_direction = move_direction.rotated(Vector3.UP, spring_arm.rotation.y).normalized()
 	velocity = Vector3(move_direction.x * move_speed, velocity.y, move_direction.z * move_speed)
-
-	move_and_slide()
 
 # Handle Player Animations
 func player_animations():

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dytxv21ay5tv0"
+path="res://.godot/imported/Prop_Fence_Straight.obj-a24c13b6b91258959e501a59ca0c58b7.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Fence_Straight.obj-a24c13b6b91258959e501a59ca0c58b7.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Prop_Fence_Straight.obj"
+dest_files=["res://.godot/imported/Prop_Fence_Straight.obj-a24c13b6b91258959e501a59ca0c58b7.mesh", "res://.godot/imported/Prop_Fence_Straight.obj-a24c13b6b91258959e501a59ca0c58b7.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

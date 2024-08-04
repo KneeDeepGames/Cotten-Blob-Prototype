@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmeldp3asgpgf"
+path="res://.godot/imported/Prop_Block_2x3.obj-8fc77cd75339b8e3f78b15f19f9d35a9.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Block_2x3.obj-8fc77cd75339b8e3f78b15f19f9d35a9.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Prop_Block_2x3.obj"
+dest_files=["res://.godot/imported/Prop_Block_2x3.obj-8fc77cd75339b8e3f78b15f19f9d35a9.mesh", "res://.godot/imported/Prop_Block_2x3.obj-8fc77cd75339b8e3f78b15f19f9d35a9.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

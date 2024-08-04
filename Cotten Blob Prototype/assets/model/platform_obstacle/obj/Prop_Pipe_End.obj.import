@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7k7getrrvcdt"
+path="res://.godot/imported/Prop_Pipe_End.obj-c89d8680b0c9f1838345fcc331922b47.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Pipe_End.obj-c89d8680b0c9f1838345fcc331922b47.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Prop_Pipe_End.obj"
+dest_files=["res://.godot/imported/Prop_Pipe_End.obj-c89d8680b0c9f1838345fcc331922b47.mesh", "res://.godot/imported/Prop_Pipe_End.obj-c89d8680b0c9f1838345fcc331922b47.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

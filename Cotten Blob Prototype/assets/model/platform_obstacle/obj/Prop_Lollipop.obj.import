@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d3t1qc47q3fii"
+path="res://.godot/imported/Prop_Lollipop.obj-bff574b640d1d4de9305b5a03656d2ac.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Lollipop.obj-bff574b640d1d4de9305b5a03656d2ac.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Prop_Lollipop.obj"
+dest_files=["res://.godot/imported/Prop_Lollipop.obj-bff574b640d1d4de9305b5a03656d2ac.mesh", "res://.godot/imported/Prop_Lollipop.obj-bff574b640d1d4de9305b5a03656d2ac.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bta6q4lcuprah"
+path="res://.godot/imported/Prop_Fence_Curve.obj-70a4bbc865dda2628e9c7bed4ece1e56.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Fence_Curve.obj-70a4bbc865dda2628e9c7bed4ece1e56.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Prop_Fence_Curve.obj"
+dest_files=["res://.godot/imported/Prop_Fence_Curve.obj-70a4bbc865dda2628e9c7bed4ece1e56.mesh", "res://.godot/imported/Prop_Fence_Curve.obj-70a4bbc865dda2628e9c7bed4ece1e56.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

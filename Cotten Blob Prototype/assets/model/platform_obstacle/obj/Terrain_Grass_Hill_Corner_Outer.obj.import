@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dxogwd6pbuks4"
+path="res://.godot/imported/Terrain_Grass_Hill_Corner_Outer.obj-475ca7a4a8b60db276029ce1c0a889b2.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Terrain_Grass_Hill_Corner_Outer.obj-475ca7a4a8b60db276029ce1c0a889b2.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Terrain_Grass_Hill_Corner_Outer.obj"
+dest_files=["res://.godot/imported/Terrain_Grass_Hill_Corner_Outer.obj-475ca7a4a8b60db276029ce1c0a889b2.mesh", "res://.godot/imported/Terrain_Grass_Hill_Corner_Outer.obj-475ca7a4a8b60db276029ce1c0a889b2.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

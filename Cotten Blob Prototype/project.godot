@@ -15,13 +15,51 @@ run/main_scene="res://scenes/level/test_area_3d.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameGlobal="*res://scripts/global_autoload/Game_Global.tscn"
+
 [display]
 
 window/size/always_on_top=true
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/filesystem_drawer/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg")
+
+[importer_defaults]
+
+scene={
+"_subresources": {
+"nodes": {
+"PATH:Wood_Dark": {
+"generate/physics": true,
+"physics/layer": 16,
+"physics/mask": 15,
+"physics/shape_type": 1
+}
+}
+},
+"animation/fps": 30,
+"animation/import": true,
+"animation/remove_immutable_tracks": true,
+"animation/trimming": false,
+"gltf/embedded_image_handling": 1,
+"gltf/naming_version": 1,
+"import_script/path": "",
+"meshes/create_shadow_meshes": true,
+"meshes/ensure_tangents": true,
+"meshes/force_disable_compression": false,
+"meshes/generate_lods": true,
+"meshes/light_baking": 1,
+"meshes/lightmap_texel_size": 0.2,
+"nodes/apply_root_scale": true,
+"nodes/root_name": "Crate",
+"nodes/root_scale": 1.0,
+"nodes/root_type": "RigidBody3D",
+"skins/use_named_skins": true
+}
 
 [input]
 
@@ -61,16 +99,15 @@ move_back={
 }
 debug_key={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"echo":false,"script":null)
-]
+"events": []
 }
 
 [layer_names]
 
 2d_physics/layer_1="player"
-3d_physics/layer_1="ground"
+3d_physics/layer_1="player"
 2d_physics/layer_2="enemy"
-3d_physics/layer_2="player"
+3d_physics/layer_2="ground"
 2d_physics/layer_3="ground"
 3d_physics/layer_3="enemy"
 3d_physics/layer_4="npc"
@@ -82,5 +119,3 @@ debug_key={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-textures/decals/filter=0
-textures/light_projectors/filter=0

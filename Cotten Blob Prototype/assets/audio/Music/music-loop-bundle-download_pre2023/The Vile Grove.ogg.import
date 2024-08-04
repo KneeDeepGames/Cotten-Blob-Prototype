@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://orxl5owx3m5w"
+path="res://.godot/imported/The Vile Grove.ogg-cabaaf2ca5190cac31f16df8ba9bb96a.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/Music/music-loop-bundle-download_pre2023/The Vile Grove.ogg"
+dest_files=["res://.godot/imported/The Vile Grove.ogg-cabaaf2ca5190cac31f16df8ba9bb96a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

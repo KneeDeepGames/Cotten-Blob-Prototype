@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://drnjr4wfiysqc"
+path="res://.godot/imported/A Flake Below All.mp3-30e0397bbbb778b16f603b68d349afcc.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/Music/A Flake Below All.mp3"
+dest_files=["res://.godot/imported/A Flake Below All.mp3-30e0397bbbb778b16f603b68d349afcc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

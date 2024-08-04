@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cfxb76t70mw6s"
+path="res://.godot/imported/Prop_Sign_Arrow_Up.obj-b14dd91f39a958182e3bb7360b1b999d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Sign_Arrow_Up.obj-b14dd91f39a958182e3bb7360b1b999d.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Prop_Sign_Arrow_Up.obj"
+dest_files=["res://.godot/imported/Prop_Sign_Arrow_Up.obj-b14dd91f39a958182e3bb7360b1b999d.mesh", "res://.godot/imported/Prop_Sign_Arrow_Up.obj-b14dd91f39a958182e3bb7360b1b999d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

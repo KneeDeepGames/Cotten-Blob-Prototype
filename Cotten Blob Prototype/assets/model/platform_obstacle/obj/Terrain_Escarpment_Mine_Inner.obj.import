@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bvt7liuh3eglm"
+path="res://.godot/imported/Terrain_Escarpment_Mine_Inner.obj-a2d17ccd38d45b656e6183db1fb9a14e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Terrain_Escarpment_Mine_Inner.obj-a2d17ccd38d45b656e6183db1fb9a14e.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Terrain_Escarpment_Mine_Inner.obj"
+dest_files=["res://.godot/imported/Terrain_Escarpment_Mine_Inner.obj-a2d17ccd38d45b656e6183db1fb9a14e.mesh", "res://.godot/imported/Terrain_Escarpment_Mine_Inner.obj-a2d17ccd38d45b656e6183db1fb9a14e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

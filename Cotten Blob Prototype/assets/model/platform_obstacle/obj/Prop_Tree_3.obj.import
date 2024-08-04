@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chnxi3qaw6tfx"
+path="res://.godot/imported/Prop_Tree_3.obj-0514c9f81b6a7819c67be7062f9964ee.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Prop_Tree_3.obj-0514c9f81b6a7819c67be7062f9964ee.mesh"]
+
+source_file="res://assets/model/platform_obstacle/obj/Prop_Tree_3.obj"
+dest_files=["res://.godot/imported/Prop_Tree_3.obj-0514c9f81b6a7819c67be7062f9964ee.mesh", "res://.godot/imported/Prop_Tree_3.obj-0514c9f81b6a7819c67be7062f9964ee.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
