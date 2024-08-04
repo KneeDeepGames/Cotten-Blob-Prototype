@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://cc0xkmo84a45p"]
+
+[ext_resource type="Script" path="res://scripts/character/player.gd" id="1_wu41k"]
+[ext_resource type="Texture2D" uid="uid://bwagjmwmeayg6" path="res://assets/player/sprites/player.png" id="2_tc1p4"]
+[ext_resource type="PackedScene" uid="uid://bbrwjyykuev8w" path="res://components/shared/health_component.tscn" id="3_5lh1m"]
+[ext_resource type="PackedScene" uid="uid://dmg7ogkewod50" path="res://components/shared/blink_component.tscn" id="4_kmaad"]
+[ext_resource type="PackedScene" uid="uid://bn6mqgdr8yb60" path="res://components/shared/attack_component.tscn" id="5_uyy10"]
+[ext_resource type="PackedScene" uid="uid://bhqbpijp5t5sq" path="res://components/shared/hitbox_component.tscn" id="5_xwde5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pkvlh"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gu7a"]
+size = Vector2(128, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w07hn"]
+size = Vector2(128, 8)
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 4
+script = ExtResource("1_wu41k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pkvlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_tc1p4")
+
+[node name="Health_Component" parent="." node_paths=PackedStringArray("blink_component") instance=ExtResource("3_5lh1m")]
+blink_component = NodePath("../Blink_Component")
+
+[node name="Blink_Component" parent="." instance=ExtResource("4_kmaad")]
+
+[node name="Hitbox_Component" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_xwde5")]
+health_component = NodePath("../Health_Component")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_Component"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_6gu7a")
+
+[node name="Attack_Component" parent="." instance=ExtResource("5_uyy10")]
+collision_mask = 2
+hurt_amount = 5
+knockback_power = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Component"]
+position = Vector2(0, 60)
+shape = SubResource("RectangleShape2D_w07hn")
+
+[node name="Label_Health" type="Label" parent="."]
+offset_top = -192.0
+offset_right = 40.0
+offset_bottom = -131.0
+theme_override_font_sizes/font_size = 44
+horizontal_alignment = 1
+vertical_alignment = 1

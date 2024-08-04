@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://1p6y8wao8wob"]
+
+[ext_resource type="PackedScene" uid="uid://cc0xkmo84a45p" path="res://scenes/character/player.tscn" id="1_7tboq"]
+[ext_resource type="Texture2D" uid="uid://cse3xmqmbqpu0" path="res://icon.svg" id="1_tx1k7"]
+[ext_resource type="PackedScene" uid="uid://c1ou0mm3br1po" path="res://scenes/character/npc/enemy/enemy_1.tscn" id="2_yl7mw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0cm7f"]
+texture = ExtResource("1_tx1k7")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_y13ha"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+sources/1 = SubResource("TileSetAtlasSource_0cm7f")
+
+[node name="Test_Area_2d" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_y13ha")
+rendering_quadrant_size = 128
+format = 2
+layer_0/tile_data = PackedInt32Array(65512, 1, 0, 65513, 1, 0, 65514, 1, 0, 65515, 1, 0, 65516, 1, 0, 65517, 1, 0, 65518, 1, 0, 65519, 1, 0, 65520, 1, 0, 65521, 1, 0, 65522, 1, 0, 65523, 1, 0, 65524, 1, 0, 65525, 1, 0, 65526, 1, 0, 65527, 1, 0, 65528, 1, 0, 65529, 1, 0, 65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 1, 0, 65492, 1, 0, 65493, 1, 0, 65494, 1, 0, 65495, 1, 0, 65496, 1, 0, 65497, 1, 0, 65498, 1, 0, 65499, 1, 0, 65500, 1, 0, 65501, 1, 0, 65502, 1, 0, 65503, 1, 0, 65504, 1, 0, 65505, 1, 0, 65506, 1, 0, 65507, 1, 0, 65508, 1, 0, 65509, 1, 0, 65510, 1, 0, 65511, 1, 0, 20, 1, 0, 21, 1, 0, 22, 1, 0, 23, 1, 0, 24, 1, 0, 25, 1, 0, 26, 1, 0, 27, 1, 0, 28, 1, 0, 29, 1, 0, 30, 1, 0, 31, 1, 0, 32, 1, 0, 33, 1, 0, 34, 1, 0, 35, 1, 0, 36, 1, 0, 37, 1, 0, 38, 1, 0, 39, 1, 0, 40, 1, 0, 41, 1, 0, 42, 1, 0, 43, 1, 0, 44, 1, 0, 45, 1, 0, 46, 1, 0, 47, 1, 0, 48, 1, 0, 49, 1, 0, 50, 1, 0, 51, 1, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_7tboq")]
+position = Vector2(-544, -64)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Enemy_1" parent="." instance=ExtResource("2_yl7mw")]
+position = Vector2(256, -64)

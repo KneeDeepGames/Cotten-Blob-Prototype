@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://byv7nyp4cf6gy"]
+
+[ext_resource type="Script" path="res://scripts/game_function/GUI.gd" id="1_jcyc4"]
+
+[node name="GUI" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_jcyc4")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cotten Blob Prototype"

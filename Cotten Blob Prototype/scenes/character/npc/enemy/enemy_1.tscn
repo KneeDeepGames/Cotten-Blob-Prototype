@@ -1,0 +1,134 @@
+[gd_scene load_steps=17 format=3 uid="uid://c1ou0mm3br1po"]
+
+[ext_resource type="Script" path="res://scripts/character/npc/enemy/enemy_1.gd" id="1_gmo8u"]
+[ext_resource type="Texture2D" uid="uid://o15iaimegg3p" path="res://assets/npc/enemy_1/sprites/enemy.png" id="1_s06sa"]
+[ext_resource type="PackedScene" uid="uid://bbrwjyykuev8w" path="res://components/shared/health_component.tscn" id="2_b3wd2"]
+[ext_resource type="PackedScene" uid="uid://bhqbpijp5t5sq" path="res://components/shared/hitbox_component_2d.tscn" id="3_k0sud"]
+[ext_resource type="PackedScene" uid="uid://bn6mqgdr8yb60" path="res://components/shared/attack_component_2d.tscn" id="4_1bxoh"]
+[ext_resource type="PackedScene" uid="uid://dmg7ogkewod50" path="res://components/shared/blink_component.tscn" id="6_yxreq"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="7_wt2nq"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="8_ew8vo"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="9_gvoy7"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="10_p8r57"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/godot_state_charts/utilities/state_chart_debugger.tscn" id="11_fscwk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t83av"]
+radius = 624.461
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h76o5"]
+radius = 1224.1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efa0d"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e8xnk"]
+size = Vector2(128, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_carjk"]
+size = Vector2(128, 128)
+
+[node name="Enemy_1" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_gmo8u")
+
+[node name="Area2D_Spotted_Player" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Spotted_Player"]
+shape = SubResource("CircleShape2D_t83av")
+
+[node name="Area2D_Lost_Player" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D_Lost_Player"]
+shape = SubResource("CircleShape2D_h76o5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_efa0d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_s06sa")
+
+[node name="Health_Component" parent="." node_paths=PackedStringArray("blink_component") instance=ExtResource("2_b3wd2")]
+health = 15
+max_health = 15
+blink_component = NodePath("../Blink_Component")
+
+[node name="Blink_Component" parent="." instance=ExtResource("6_yxreq")]
+blink_duration = 4.0
+blink_interval = 0.15
+blink_brightness_alpha = 0.5
+gradual_interval_change = true
+tween_time_to_change_interval = 2.0
+
+[node name="Hitbox_Component" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("3_k0sud")]
+collision_layer = 2
+health_component = NodePath("../Health_Component")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox_Component"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_e8xnk")
+
+[node name="Attack_Component" parent="." instance=ExtResource("4_1bxoh")]
+collision_layer = 2
+hurt_amount = 5
+knockback_power = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Component"]
+shape = SubResource("RectangleShape2D_carjk")
+
+[node name="Label_Health" type="Label" parent="."]
+offset_top = -192.0
+offset_right = 40.0
+offset_bottom = -131.0
+theme_override_font_sizes/font_size = 44
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("7_wt2nq")
+
+[node name="Root" type="Node" parent="StateChart"]
+script = ExtResource("8_ew8vo")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/Root"]
+script = ExtResource("9_gvoy7")
+
+[node name="To_Chasing_Player" type="Node" parent="StateChart/Root/Idle"]
+script = ExtResource("10_p8r57")
+to = NodePath("../../Chasing_Player")
+event = &"player_spotted"
+delay_in_seconds = "0.0"
+
+[node name="Chasing_Player" type="Node" parent="StateChart/Root"]
+script = ExtResource("9_gvoy7")
+
+[node name="To_Idle" type="Node" parent="StateChart/Root/Chasing_Player"]
+script = ExtResource("10_p8r57")
+to = NodePath("../../Idle")
+event = &"idle"
+delay_in_seconds = "0.0"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="StateChartDebugger" parent="CanvasLayer" instance=ExtResource("11_fscwk")]
+visible = false
+offset_right = -928.0
+offset_bottom = -448.0
+initial_node_to_watch = NodePath("../../StateChart")
+
+[node name="Timer_Patrol" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D_Spotted_Player" to="." method="_on_area_2d_spotted_player_body_entered"]
+[connection signal="body_exited" from="Area2D_Lost_Player" to="." method="_on_area_2d_lost_player_body_exited"]
+[connection signal="state_entered" from="StateChart/Root/Idle" to="." method="_on_idle_state_entered"]
+[connection signal="state_exited" from="StateChart/Root/Idle" to="." method="_on_idle_state_exited"]
+[connection signal="state_physics_processing" from="StateChart/Root/Idle" to="." method="_on_idle_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/Root/Chasing_Player" to="." method="_on_chasing_player_state_entered"]
+[connection signal="state_exited" from="StateChart/Root/Chasing_Player" to="." method="_on_chasing_player_state_exited"]
+[connection signal="state_physics_processing" from="StateChart/Root/Chasing_Player" to="." method="_on_chasing_player_state_physics_processing"]
