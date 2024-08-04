@@ -1,5 +1,5 @@
 extends Area2D
-class_name HitboxComponent
+class_name HitboxComponent2D
 
 @export var health_component:HealthComponent = null
 @export var blink_component:BlinkComponent = null

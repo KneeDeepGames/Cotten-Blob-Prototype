@@ -1,5 +1,5 @@
 extends Area2D
-class_name AttackComponent
+class_name AttackComponent2D
 
 @export var hurt_amount:int
 @export var knockback_power:int
@@ -15,7 +15,7 @@ func _on_area_entered(area):
 	hurt(area)
 	
 func hurt(area):
-	if area is HitboxComponent and get_parent().can_attack and timer_attack_delay.is_stopped() and area.has_method("hurt"):
+	if area is HitboxComponent2D and get_parent().can_attack and timer_attack_delay.is_stopped() and area.has_method("hurt"):
 		if get_parent().has_method("performed_attack"):
 			get_parent().performed_attack()
 		if delay_attack:

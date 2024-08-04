@@ -42,6 +42,8 @@ shape = SubResource("RectangleShape2D_6gu7a")
 collision_mask = 2
 hurt_amount = 5
 knockback_power = 1
+delay_attack = null
+attack_delay_time = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack_Component"]
 position = Vector2(0, 60)

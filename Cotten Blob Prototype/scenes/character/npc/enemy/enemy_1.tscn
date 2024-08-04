@@ -58,7 +58,7 @@ blink_component = NodePath("../Blink_Component")
 [node name="Blink_Component" parent="." instance=ExtResource("6_yxreq")]
 blink_duration = 4.0
 blink_interval = 0.15
-blink_brightness_alpha = 0.5
+blink_color = Color(1, 0.6, 0.6, 0)
 gradual_interval_change = true
 tween_time_to_change_interval = 2.0
 

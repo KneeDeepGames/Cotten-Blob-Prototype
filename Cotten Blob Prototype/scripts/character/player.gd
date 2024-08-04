@@ -6,6 +6,7 @@ class_name Player
 const SPEED = 500.0
 const JUMP_VELOCITY = 1000.0
 
+var color:Color = Color(1,1,1,1)
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_attack:bool = true
 
@@ -13,6 +14,7 @@ func performed_attack():
 	jump()
 
 func _process(_delta):
+	sprite.set_self_modulate(color)
 	#allow attack if moving down
 	can_attack = true if velocity.y > 0 else false
 	
@@ -24,7 +26,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Get the input direction and handle the movement/deceleration.
-	var direction = Input.get_axis("left", "right")
+	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
 		#printt(velocity.x,self)

@@ -12,6 +12,7 @@ class_name Enemy
 const speed:int = 250
 const accel:int = 25
 
+var color:Color = Color(1,1,1,1)
 var can_attack:bool = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player = null
@@ -26,6 +27,7 @@ func _ready():
 	origin = global_position
 
 func _process(_delta):
+	sprite.set_self_modulate(color)
 	distance_from_origin = (global_position.x - origin.x)
 	
 	#allow attack if moving down

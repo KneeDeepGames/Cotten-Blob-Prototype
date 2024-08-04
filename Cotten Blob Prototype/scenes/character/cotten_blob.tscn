@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwmv0cy76pcck"]
+[gd_scene load_steps=12 format=3 uid="uid://bwmv0cy76pcck"]
 
 [ext_resource type="Script" path="res://scripts/character/cotten_blob.gd" id="1_tpgbt"]
 [ext_resource type="Script" path="res://scripts/game_function/CameraMovement.gd" id="2_b7tjf"]
@@ -7,7 +7,17 @@
 [ext_resource type="PackedScene" uid="uid://crg7bjqw2fuee" path="res://components/shared/hitbox_component_3d.tscn" id="5_v23nh"]
 [ext_resource type="PackedScene" uid="uid://crlvyjh8avh3m" path="res://components/shared/attack_component_3d.tscn" id="6_gb2tb"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_06o48"]
+frequency = 0.0051
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gxs26"]
+noise = SubResource("FastNoiseLite_06o48")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xro6"]
+albedo_texture = SubResource("NoiseTexture2D_gxs26")
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7ypxq"]
+material = SubResource("StandardMaterial3D_0xro6")
 height = 1.5
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yr2gk"]
@@ -17,8 +27,9 @@ height = 1.5
 collision_layer = 2
 script = ExtResource("1_tpgbt")
 follow_lerp_factor = 12.0
+cam_pos_offset = Vector3(0, 0.25, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Model" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("CapsuleMesh_7ypxq")
 
@@ -28,7 +39,7 @@ shape = SubResource("CapsuleShape3D_yr2gk")
 
 [node name="Gimbal" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62331, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26044, 0)
 script = ExtResource("2_b7tjf")
 mouse_sensitivity = 0.1
 
@@ -40,6 +51,8 @@ current = true
 blink_component = NodePath("../Blink_Component")
 
 [node name="Blink_Component" parent="." instance=ExtResource("4_ly1j2")]
+blink_duration = 1.0
+blink_color = Color(1, 0.768306, 0.762556, 1)
 
 [node name="Attack_Component_3d" parent="." instance=ExtResource("6_gb2tb")]
 hurt_amount = 5

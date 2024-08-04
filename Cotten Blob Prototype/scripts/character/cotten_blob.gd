@@ -1,9 +1,3 @@
-# ----------------------------------------------------------------------------------- #
-# -------------- FEEL FREE TO USE IN ANY PROJECT, COMMERCIAL OR NON-COMMERCIAL ------ #
-# ---------------------- 3D PLATFORMER CONTROLLER BY SD STUDIOS --------------------- #
-# ---------------------------- ATTRIBUTION NOT REQUIRED ----------------------------- #
-# ----------------------------------------------------------------------------------- #
-
 extends CharacterBody3D
 
 # ---------- VARIABLES ---------- #
@@ -13,39 +7,51 @@ extends CharacterBody3D
 @export var jump_force : float = 5
 @export var follow_lerp_factor : float = 4
 @export var jump_limit : int = 2
+@export var cam_pos_offset:Vector3
 
 @export_group("Game Juice")
 @export var jumpStretchSize := Vector3(0.8, 1.2, 0.8)
 
-# Booleans
-var is_grounded = false
-var can_double_jump = false
-var can_attack:bool = false
-
 # Onready Variables
-#@onready var model = $gobot
+@onready var model = $Model
+@onready var model_mesh = model.get_mesh()
+@onready var model_material = model_mesh.get_material()
 #@onready var animation = $gobot/AnimationPlayer
 @onready var spring_arm = %Gimbal
 
 #@onready var particle_trail = $ParticleTrail
 #@onready var footsteps = $Footsteps
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
+# Misc Variables
+
+var color:Color = Color(1,1,1,1)
+
+# Floats
+
+var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity") * 2
+
+# Booleans
+var is_grounded:bool = false
+var can_double_jump:bool = false
+var can_attack:bool = false
+
 
 # ---------- FUNCTIONS ---------- #
 
-func _process(delta):
+func _process(_delta):
+	model_material.albedo_color = color
+
+func _physics_process(delta):
 	player_animations()
 	get_input(delta)
 	
 	# Smoothly follow player's position
-	spring_arm.position = lerp(spring_arm.position, position, delta * follow_lerp_factor)
+	spring_arm.position = lerp(spring_arm.position, position, delta * follow_lerp_factor) + Vector3(cam_pos_offset)
 	
 	# Player Rotation
-	#if is_moving():
-		#var look_direction = Vector2(velocity.z, velocity.x)
-		#model.rotation.y = lerp_angle(model.rotation.y, look_direction.angle(), delta * 12)
+	if is_moving():
+		var look_direction = Vector2(velocity.z, velocity.x)
+		model.rotation.y = lerp_angle(model.rotation.y, look_direction.angle(), delta * 12)
 	
 	# Check if player is grounded or not
 	is_grounded = true if is_on_floor() else false
