@@ -1,10 +1,18 @@
 extends Node
 class_name CollectableComponent
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@export var candy_add_amount:int
+@export var type_candy:bool
+@export var chocolate_add_amount:int
+@export var type_chocolate:bool
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func collect():
+	if type_candy:
+		GameGlobal.collect_candy(candy_add_amount)
+	if type_chocolate:
+		GameGlobal.collect_chocolate(chocolate_add_amount)
+	get_parent().queue_free()
+
+func _on_body_entered(body):
+	if body.is_in_group("player"):
+		collect()

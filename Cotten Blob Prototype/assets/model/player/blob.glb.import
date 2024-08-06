@@ -1,0 +1,43 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://cp3mxgmnshm2y"
+path="res://.godot/imported/blob.glb-0328510d348f10919984b9473f5bfe38.scn"
+
+[deps]
+
+source_file="res://assets/model/player/blob.glb"
+dest_files=["res://.godot/imported/blob.glb-0328510d348f10919984b9473f5bfe38.scn"]
+
+[params]
+
+nodes/root_type="RigidBody3D"
+nodes/root_name="Crate"
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+import_script/path=""
+_subresources={
+"nodes": {
+"PATH:Wood_Dark": {
+"generate/physics": true,
+"physics/layer": 16,
+"physics/mask": 15,
+"physics/shape_type": 1
+}
+}
+}
+gltf/naming_version=1
+gltf/embedded_image_handling=1

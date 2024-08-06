@@ -1,11 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfndky7iqsa2m"]
+[gd_scene load_steps=9 format=3 uid="uid://cfndky7iqsa2m"]
 
 [ext_resource type="Script" path="res://scripts/item/coin.gd" id="1_enipu"]
 [ext_resource type="Texture2D" uid="uid://bykpcesw0ixfm" path="res://assets/texture/colormap.png" id="2_1m2d0"]
-[ext_resource type="PackedScene" uid="uid://crg7bjqw2fuee" path="res://components/shared/hitbox_component_3d.tscn" id="3_jeo0i"]
 [ext_resource type="PackedScene" uid="uid://clwfbklm0atsa" path="res://components/item/collectable_component.tscn" id="4_m1twn"]
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_osjll"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ioqnf"]
 resource_name = "colormap"
@@ -50,18 +47,24 @@ albedo_texture = ExtResource("2_1m2d0")
 rim_enabled = true
 rim = 0.5
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_bcjw3"]
+
 [node name="Coin" type="Node3D"]
 script = ExtResource("1_enipu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.186597, 0)
-shape = SubResource("SphereShape3D_osjll")
 
 [node name="MeshInstance3D_Coin" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_fl3ae")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_tsose")
 
-[node name="Hitbox_Component_3d" parent="." instance=ExtResource("3_jeo0i")]
-
 [node name="Collectable_Component" parent="." instance=ExtResource("4_m1twn")]
+collision_layer = 0
+monitorable = false
+candy_add_amount = 1
+type_candy = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Collectable_Component"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.209159, 0)
+shape = SubResource("SphereShape3D_bcjw3")
+
+[connection signal="body_entered" from="Collectable_Component" to="Collectable_Component" method="_on_body_entered"]

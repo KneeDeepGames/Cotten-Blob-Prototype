@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Cotten Blob Prototype"
-run/main_scene="res://scenes/level/test_area_3d.tscn"
+run/main_scene="res://scenes/level/test_area_3d_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GameGlobal="*res://scripts/global_autoload/Game_Global.tscn"
+GameGlobal="*res://scenes/global_autoload/Game_Global.tscn"
 
 [display]
 

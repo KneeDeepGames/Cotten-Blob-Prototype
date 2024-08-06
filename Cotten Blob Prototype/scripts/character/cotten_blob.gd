@@ -8,14 +8,15 @@ extends CharacterBody3D
 @export var follow_lerp_factor : float = 4
 @export var jump_limit : int = 2
 @export var cam_pos_offset:Vector3
+@export var push_force:int = 8
 
 @export_group("Game Juice")
 @export var jumpStretchSize := Vector3(0.8, 1.2, 0.8)
 
 # Onready Variables
 @onready var model = $Model
-@onready var model_mesh = model.get_mesh()
-@onready var model_material = model_mesh.get_material()
+#@onready var model_mesh = model.get_mesh()
+#@onready var model_material = model_mesh.get_material()
 #@onready var animation = $gobot/AnimationPlayer
 @onready var spring_arm = %Gimbal
 
@@ -32,7 +33,7 @@ var gravity:float = ProjectSettings.get_setting("physics/3d/default_gravity") * 
 
 # Integers
 
-var push_force:int = 4
+
 
 # Booleans
 var is_grounded:bool = false
@@ -43,7 +44,8 @@ var can_attack:bool = false
 # ---------- FUNCTIONS ---------- #
 
 func _process(_delta):
-	model_material.albedo_color = color
+	pass
+	#model_material.albedo_color = color
 
 func _physics_process(delta):
 	player_animations()
@@ -77,8 +79,9 @@ func _physics_process(delta):
 	
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
-		if c.get_collider() is RigidBody3D:
+		if c.get_collider() is RigidBody3D: 
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+			print("pushed")
 
 func perform_jump():
 	#AudioManager.jump_sfx.play()

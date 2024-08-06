@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://bwmv0cy76pcck"]
+[gd_scene load_steps=10 format=3 uid="uid://bwmv0cy76pcck"]
 
 [ext_resource type="Script" path="res://scripts/character/cotten_blob.gd" id="1_tpgbt"]
+[ext_resource type="ArrayMesh" uid="uid://b5xgx3x5slcfn" path="res://assets/model/player/blob.obj" id="2_6dn2v"]
 [ext_resource type="Script" path="res://scripts/game_function/CameraMovement.gd" id="2_b7tjf"]
+[ext_resource type="Material" uid="uid://cvg2wqry208ds" path="res://materiels/player/cotten_blob.tres" id="2_wxo65"]
 [ext_resource type="PackedScene" uid="uid://bbrwjyykuev8w" path="res://components/shared/health_component.tscn" id="3_lalxm"]
 [ext_resource type="PackedScene" uid="uid://dmg7ogkewod50" path="res://components/shared/blink_component.tscn" id="4_ly1j2"]
 [ext_resource type="PackedScene" uid="uid://crg7bjqw2fuee" path="res://components/shared/hitbox_component_3d.tscn" id="5_v23nh"]
@@ -10,48 +12,21 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yr2gk"]
 height = 1.5
 
-[sub_resource type="Gradient" id="Gradient_6k7a0"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0.694118, 0.117647, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_dw65v"]
-gradient = SubResource("Gradient_6k7a0")
-
-[sub_resource type="Gradient" id="Gradient_p7bv6"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0c13p"]
-frequency = 0.0056
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_r5coy"]
-in_3d_space = true
-seamless = true
-as_normal_map = true
-normalize = false
-color_ramp = SubResource("Gradient_p7bv6")
-noise = SubResource("FastNoiseLite_0c13p")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xro6"]
-albedo_texture = SubResource("GradientTexture1D_dw65v")
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_r5coy")
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_7ypxq"]
-material = SubResource("StandardMaterial3D_0xro6")
-height = 1.5
-
 [node name="Cotten_Blob" type="CharacterBody3D" groups=["player"]]
-collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_tpgbt")
 follow_lerp_factor = 12.0
 cam_pos_offset = Vector3(0, 0.25, 0)
+push_force = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_yr2gk")
 
 [node name="Model" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
-mesh = SubResource("CapsuleMesh_7ypxq")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.26592, 0)
+material_override = ExtResource("2_wxo65")
+mesh = ExtResource("2_6dn2v")
 
 [node name="Gimbal" type="Node3D" parent="."]
 unique_name_in_owner = true
